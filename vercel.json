@@ -1,8 +1,15 @@
 {
-  "buildCommand": "npm install",
-  "outputDirectory": ".",
-  "framework": "none",
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/medications.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/medications.js"
+    }
+  ]
 }
