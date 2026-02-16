@@ -1,46 +1,22 @@
-export default function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Content-Type', 'application/json');
-
-  const medications = [
-    {
-      patientId: "P001",
-      patientName: "James Mitchell",
-      antibiotic: "Meropenem",
-      startDate: "2024-02-10",
-      daysOn: 5,
-      wardId: "AM01"
-    },
-    {
-      patientId: "P002",
-      patientName: "Sarah Johnson",
-      antibiotic: "Piperacillin-tazobactam",
-      startDate: "2024-02-08",
-      daysOn: 7,
-      wardId: "ICU02"
-    },
-    {
-      patientId: "P003",
-      patientName: "Robert Chen",
-      antibiotic: "Ceftriaxone",
-      startDate: "2024-02-09",
-      daysOn: 6,
-      wardId: "MED03"
-    }
-  ];
-
-  const path = req.url || '/';
-  
-  if (path === '/' || path === '/api/medications') {
-    return res.status(200).json(medications);
-  }
-
-  const patientId = path.split('/').pop();
-  const med = medications.find(m => m.patientId === patientId);
-  
-  if (med) {
-    return res.status(200).json(med);
-  }
-  
-  return res.status(404).json({ error: 'Not found' });
-}
+[
+  {"patientId":"P001","patientName":"James Mitchell","admissionDate":"2026-02-10","antibiotic":"Meropenem","startDate":"2026-02-10","daysOn":5,"wardId":"AM01","indication":"UTI","clinician":"Dr. Patel"},
+  {"patientId":"P002","patientName":"Sarah Johnson","admissionDate":"2026-02-08","antibiotic":"Piperacillin-tazobactam","startDate":"2026-02-08","daysOn":7,"wardId":"ICU02","indication":"Sepsis","clinician":"Dr. Nkosi"},
+  {"patientId":"P003","patientName":"Robert Chen","admissionDate":"2026-02-09","antibiotic":"Ceftriaxone","startDate":"2026-02-09","daysOn":6,"wardId":"MED03","indication":"Pneumonia","clinician":"Dr. Smith"},
+  {"patientId":"P004","patientName":"Alice Wong","admissionDate":"2026-02-07","antibiotic":"Meropenem","startDate":"2026-02-07","daysOn":8,"wardId":"ICU01","indication":"Wound Infection","clinician":"Dr. Van der Merwe"},
+  {"patientId":"P005","patientName":"Michael Brown","admissionDate":"2026-02-12","antibiotic":"Piperacillin-tazobactam","startDate":"2026-02-12","daysOn":3,"wardId":"AM02","indication":"Intra-abdominal","clinician":"Dr. Pillay"},
+  {"patientId":"P006","patientName":"Emily Davis","admissionDate":"2026-02-06","antibiotic":"Vancomycin","startDate":"2026-02-06","daysOn":9,"wardId":"ICU03","indication":"Endocarditis","clinician":"Dr. Moyo"},
+  {"patientId":"P007","patientName":"David Wilson","admissionDate":"2026-02-11","antibiotic":"Imipenem","startDate":"2026-02-11","daysOn":4,"wardId":"SURG01","indication":"Post-op Infection","clinician":"Dr. Singh"},
+  {"patientId":"P008","patientName":"Jennifer Lee","admissionDate":"2026-02-10","antibiotic":"Cefepime","startDate":"2026-02-10","daysOn":5,"wardId":"MED01","indication":"Community Pneumonia","clinician":"Dr. Chetty"},
+  {"patientId":"P009","patientName":"Daniel Harris","admissionDate":"2026-02-13","antibiotic":"Meropenem","startDate":"2026-02-13","daysOn":2,"wardId":"ICU04","indication":"Meningitis","clinician":"Dr. Patel"},
+  {"patientId":"P010","patientName":"Amanda Taylor","admissionDate":"2026-02-09","antibiotic":"Piperacillin-tazobactam","startDate":"2026-02-09","daysOn":6,"wardId":"AM03","indication":"Biliary Tract","clinician":"Dr. Nkosi"},
+  {"patientId":"P011","patientName":"Kevin Anderson","admissionDate":"2026-02-07","antibiotic":"Vancomycin","startDate":"2026-02-07","daysOn":8,"wardId":"CARD01","indication":"Endocarditis","clinician":"Dr. Smith"},
+  {"patientId":"P012","patientName":"Lauren Rodriguez","admissionDate":"2026-02-11","antibiotic":"Ceftriaxone","startDate":"2026-02-11","daysOn":4,"wardId":"MED02","indication":"Lower UTI","clinician":"Dr. Van der Merwe"},
+  {"patientId":"P013","patientName":"Christopher Martinez","admissionDate":"2026-02-08","antibiotic":"Imipenem","startDate":"2026-02-08","daysOn":7,"wardId":"ICU05","indication":"Hospital-acquired Pneumonia","clinician":"Dr. Pillay"},
+  {"patientId":"P014","patientName":"Joshua Garcia","admissionDate":"2026-02-12","antibiotic":"Cefepime","startDate":"2026-02-12","daysOn":3,"wardId":"MED04","indication":"Otitis Media","clinician":"Dr. Moyo"},
+  {"patientId":"P015","patientName":"Nicole Thomas","admissionDate":"2026-02-06","antibiotic":"Meropenem","startDate":"2026-02-06","daysOn":9,"wardId":"BURN01","indication":"Burn Wound","clinician":"Dr. Singh"},
+  {"patientId":"P016","patientName":"Brandon Jackson","admissionDate":"2026-02-10","antibiotic":"Piperacillin-tazobactam","startDate":"2026-02-10","daysOn":5,"wardId":"AM04","indication":"Abscess","clinician":"Dr. Chetty"},
+  {"patientId":"P017","patientName":"Matthew Thompson","admissionDate":"2026-02-13","antibiotic":"Amoxicillin-clavulanate","startDate":"2026-02-13","daysOn":2,"wardId":"MED01","indication":"Community Pneumonia","clinician":"Dr. Patel"},
+  {"patientId":"P018","patientName":"Rachel White","admissionDate":"2026-02-09","antibiotic":"Vancomycin","startDate":"2026-02-09","daysOn":6,"wardId":"ICU01","indication":"Sepsis","clinician":"Dr. Nkosi"},
+  {"patientId":"P019","patientName":"Tyler Robinson","admissionDate":"2026-02-07","antibiotic":"Ceftriaxone","startDate":"2026-02-07","daysOn":8,"wardId":"SURG01","indication":"Post-op Prophylaxis","clinician":"Dr. Smith"},
+  {"patientId":"P020","patientName":"Samantha Clark","admissionDate":"2026-02-11","antibiotic":"Meropenem","startDate":"2026-02-11","daysOn":4,"wardId":"ICU03","indication":"CNS Infection","clinician":"Dr. Van der Merwe"}
+]
